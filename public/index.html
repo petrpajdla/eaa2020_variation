@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta charset="utf-8" />
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="generator" content="pandoc" />
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+
+
+<title>Result of small decisions within borders of shared manufacturing practice</title>
+
+
+
+
+
+
+<!--
+Font-awesome icons ie github or twitter
+-->
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css" integrity="sha384-50oBUHEmvpQ+1lW4y57PTFmhCaXp0ML5d60M1M7uH2+nqUivzIebhndOJK28anvf" crossorigin="anonymous">
+<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/brands.css" integrity="sha384-n9+6/aSqa9lBidZMRCQHTHKJscPq6NW4pCQBiMmHdUCvPN8ZOg2zJJTkC7WIezWv" crossorigin="anonymous">
+
+<!--
+Google fonts api stuff
+-->
+<link href='https://fonts.googleapis.com/css?family=Special Elite' rel='stylesheet'>
+<link href='https://fonts.googleapis.com/css?family=Rasa' rel='stylesheet'>
+
+<!--
+Here are the required style attributes for css to make this poster work :)
+-->
+<style>
+@page {
+size: 36in 48in;
+margin: 0;
+padding: 0;
+}
+body {
+margin: 0px;
+padding: 0px;
+width: 36in;
+height: 48in;
+text-align: justify;
+font-size: 45px;
+line-height: 1.05;
+}
+/* RMarkdown Class Styles */
+/* center align leaflet map,
+from https://stackoverflow.com/questions/52112119/center-leaflet-in-a-rmarkdown-document */
+.html-widget {
+margin: auto;
+position: sticky;
+margin-top: 2cm;
+margin-bottom: 2cm;
+}
+.leaflet.html-widget.html-widget-static-bound.leaflet-container.leaflet-touch.leaflet-fade-anim.leaflet-grab.leaflet-touch-drag.leaflet-touch-zoom {
+position: sticky;
+width: 100%;
+}
+pre.sourceCode.r {
+background-color: #dddddd40;
+border-radius: 4mm;
+padding: 4mm;
+width: 75%;
+margin: auto;
+margin-top: 1em;
+margin-bottom: 1em;
+/* align-items: center; */
+}
+code.sourceCode.r{
+background-color: transparent;
+font-size: 20pt;
+border-radius: 2mm;
+}
+code {
+font-size: 25pt;
+font-family: monospace;
+background-color: #00808024;
+color: #0b4545;
+padding: 1.2mm;
+line-height: 1;
+border-radius: 2mm;
+}
+caption {
+margin-bottom: 10px;
+font-size: 20pt;
+font-style: italic;
+}
+
+tbody tr:nth-child(odd) {
+    background-color: #00808020;
+}
+.table>thead>tr>th, .table>tbody>tr>th, .table>tfoot>tr>th, .table>thead>tr>td, .table>tbody>tr>td, .table>tfoot>tr>td{
+  border-spacing: 0;
+  font-size: 40%;
+  border-style: none;
+  padding-top: 15px;
+  padding-bottom: 15px;
+  padding-right: 1em;
+  padding-left: 1em;
+  line-height: 1em;
+}
+table {
+  margin: auto;
+}
+th {
+  padding-left: 5mm;
+  padding-right: 5mm;
+}
+.caption {
+font-size: 20pt;
+font-style: italic;
+padding-top: 0;
+}
+.references {
+font-size: 20px;
+line-height: 90%;
+}
+/* Create three unequal columns that floats next to each other */
+.column {
+float: left;
+padding: 0px;
+}
+.outer {
+width: 36in;
+height: calc(48in *  (1 - 0.14 - 0.06 - 0.01) );
+-webkit-column-count: 3; /* Chrome, Safari, Opera */
+-moz-column-count: 3; /* Firefox */
+column-count: 3;
+-webkit-column-fill: auto;
+-moz-column-fill: auto;
+column-fill: auto;
+column-gap: 0;
+padding-left: 0cm;
+padding-right: 0cm;
+/* -webkit-column-rule-width: 50%;
+-moz-column-rule-width: 50%;
+column-rule-width: 50%; */
+-webkit-column-rule-style: none;
+-moz-column-rule-style: none;
+column-rule-style: none;
+-webkit-column-rule-color: black;
+-moz-column-rule-color: black;
+column-rule-color: black;
+background-color: #ffffff;
+font-family: Rasa;
+margin-top: calc(48in *  0.14 );
+padding-top: 1em;
+padding-bottom: 1em;
+}
+span.citation {
+  color: #008080;
+  font-weight: bold;
+}
+a {
+text-decoration: none;
+color: #008080;
+}
+#title {
+font-size: 125pt;
+text-align: left;
+margin: 0;
+line-height: 98%;
+border-bottom: 0;
+font-weight: normal;
+background: 0;
+}
+#author {
+color: #0b4545;
+margin: 0;
+line-height: 85%;
+font-size: 1.17em;
+}
+#affiliation {
+padding-top: 0.1em;
+color: ;
+font-style: italic;
+font-size: 25px;
+margin: 0;
+}
+sup {
+color: #cc0000;
+}
+.affiliation sup {
+font-size: 20px;
+}
+.author {
+text-align: left;
+}
+.author sup {
+font-size: 30px;
+}
+.author_extra {
+color: #008080;
+margin: 0;
+line-height: 85%;
+font-size: 35px;
+text-align: left;
+}
+.outer h1, h2, h3, h4, h5, h6 {
+text-align: center;
+margin: 0;
+font-weight: bold;
+}
+.section h1 {
+  text-align:center;
+  padding-bottom:5px;
+  background:
+    linear-gradient(
+      to left,
+      #ffffff 1%,
+      #ffffff 20%,
+      #0b454575 33%,
+      #0b4545 50%,
+      #0b454575 66%,
+      #ffffff 80%,
+      #ffffff 99%
+    )
+    left
+    bottom
+    #ffffff
+    no-repeat;
+  background-size:100% 5px ;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+}
+.outer h2 {
+text-align: center;
+}
+.outer p, .level2 {
+color: #000000;
+}
+.outer ol {
+padding-left: 8%;
+padding-right: 8%;
+text-align: left;
+}
+.main {
+width: 36in;
+height: calc(48in * 0.14);
+position: absolute;
+background-color: #0b4545;
+color: #ffffff90;
+font-family: Special Elite;
+background-image: linear-gradient(#0b4545 50%,#008080);
+}
+.main strong {
+color: #ffffff;
+}
+.main strong > sup {
+color: #ffffff;
+}
+.main sup {
+color: #ffffff90;
+}
+#main-img-left {
+width: 10%;
+left: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+#main-img-center {
+width: 10%;
+left: calc(36in * 0.45);
+bottom: 0.5in;
+position: absolute;
+}
+#main-img-right {
+width: 10%;
+right: 0.5in;
+bottom: 0.2in;
+position: absolute;
+}
+.main p {
+font-size: 150px;
+font-family: Special Elite;
+text-align: center;
+margin: 0;
+position: absolute;
+top: 50%;
+-ms-transform: translateY(-50%);
+transform: translateY(-50%);
+margin-left: 1em;
+}
+.fab {
+color: #00000030;
+font-size: 25px;
+}
+.twitter, i {
+color: #00000030;
+font-size: 35px;
+text-decoration: none;
+}
+a.email {
+text-decoration: none;
+color: #00000030;
+font-size: 35px;
+}
+.envelope {
+color: #00000030;
+font-size: 5px;
+text-decoration: none;
+}
+.poster_wrap {
+width: 36in;
+height: 48in;
+padding: 0cm;
+}
+.main_bottom {
+width: 36in;
+height: calc(48in * 0.06);
+margin-top: calc(48in * (1 - 0.06));
+position: absolute;
+background-color: #0b4545;
+background-image: linear-gradient(#008080 10%, #0b4545);
+}
+.section {
+  padding-left: 10mm;
+  padding-right: 10mm;
+}
+span > #tab:mytable {
+  font-weight: bold;
+}
+.orcid img {
+  width: 3%;
+}
+.emphasis {
+  background-color: #008080;
+  color: #ffffff;
+  border: solid #0b2045 3mm;
+  margin: 1em;
+  padding-left: 0;
+  padding-right: 0;
+}
+.emphasis h1 {
+  font-weight: bold;
+  background: none;
+  background-color: #0b2045;
+  padding-bottom: 5mm;
+  padding-top: 1mm;
+  margin-top: -1mm;
+  margin-right: -1mm;
+  margin-left: -1mm;
+}
+.emphasis blockquote {
+  border: 0;
+}
+.emphasis ol {
+  padding: 0;
+  padding-left: 8%;
+  font-size: 100%;
+  font-weight: bold;
+}
+.emphasis p {
+  color: #ffffff;
+}
+</style>
+</head>
+<body>
+
+
+<div class="poster_wrap">
+
+<div class="column outer">
+<div class="section">
+<h1 id="title">Result of <strong>small decisions</strong> within borders of <strong>shared</strong> manufacturing <strong>practice</strong></h1><br>
+<h3 id="author" class="author">
+
+<strong>Petr Pajdla</strong><sup> 1, <a class="orcid" href="https://orcid.org/0000-0001-7050-9572"><img src="https://raw.githubusercontent.com/brentthorne/posterdown/master/images/orcid.jpg"></a></sup><br>
+
+<a class='envelope'><i class="fas fa-envelope"></i></a> <a href="mailto:petr.pajdla@protonmail.com" class="email">petr.pajdla@protonmail.com</a> <br>
+</h3>
+
+<h5 id="author_extra", class="author_extra">
+</h5>
+
+
+<p id="affiliation" class="affiliation">
+<sup>1</sup> Department of Archaeology and Museology, Masaryk University, Brno
+</p>
+</div>
+
+<div id="introduction" class="section level1">
+<h1>Introduction</h1>
+<p>There is some variation in the shape and size of polished stone tools (axes, adzes etc.)
+In archaeology, we use this variation to construct <strong>types</strong>, usually with
+ascribed chronological significance. Here we will explore the <em>origin</em> of this variation.</p>
+<div class="figure" style="text-align: center"><span id="fig:img-pca"></span>
+<img src="fig/pca_side.png" alt="Variation in shape of LBK adzes, side view" width="100%" />
+<p class="caption">
+Figure 1: Variation in shape of LBK adzes, side view
+</p>
+</div>
+</div>
+<div id="problem" class="section level1">
+<h1>Problem</h1>
+<p>The <strong>variance</strong> in shape can occur in (<em>at least</em>) two points in time:</p>
+<ul>
+<li>During the <strong>manufacturing process</strong></li>
+<li>During the <strong>use</strong> and <strong>reparations</strong> of the tool</li>
+</ul>
+<p>Changes in shape during the <strong>use</strong> are limited to resharpening of the working edge of the
+tool or reparations of the part that is attached to the shaft.</p>
+<p>The changes in shape during the use phase of the tool are thus usually minor ones but
+stacked together, these might lead to larger differences.</p>
+<p>In our point of view, the <strong>manufacturing process</strong> is nevertheless the main source of
+shape variation of the polished and beveled artefacts.</p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="manufacture" class="section level1">
+<h1>Manufacture</h1>
+<div class="figure" style="text-align: center"><span id="fig:img-manuf"></span>
+<img src="fig/manuf2.png" alt="Idealized manufacture process (Toth 1992)" width="100%" />
+<p class="caption">
+Figure 2: Idealized manufacture process (Toth 1992)
+</p>
+</div>
+<p>We have quite a good idea of the manufacturing process of polished and beveled stone
+tools thanks to <em>analogies</em> from New Guinea (e.g. Pétrequin – Pétrequin 2011; Hampton 1999; Toth 1992 etc.)
+and documented quarries (e.g. Prostředník – Šída et al. 2005; Pétrequin – Pétrequin 1998).</p>
+<div id="a-complicated-process" class="section level2">
+<h2>A complicated process?</h2>
+<ol style="list-style-type: decimal">
+<li>Quarrying a stone block</li>
+<li>Rough flaking into an amorphous roughout</li>
+<li>Fine flaking into a blank resembling the ideal final product in shape and size</li>
+<li>Grinding the working edges or the whole surface</li>
+<li>Fine polishing…</li>
+</ol>
+<p>The process <em>needs to be <strong>learned!</strong></em></p>
+</div>
+<div id="the-case-of-lbk-pottery" class="section level2">
+<h2>The case of LBK pottery</h2>
+<div class="figure" style="text-align: center"><span id="fig:img-pots"></span>
+<img src="fig/pots.png" alt="Simplified model of pottery traditions in the LBK (Claßen 2009)" width="100%" />
+<p class="caption">
+Figure 3: Simplified model of pottery traditions in the LBK (Claßen 2009)
+</p>
+</div>
+<blockquote>
+<p>Premise: <em>Women</em> making pottery.</p>
+</blockquote>
+<p><strong>Idea of change</strong> in pottery <em>style</em> happening due to:</p>
+<ul>
+<li>exogamy (changing place of residence):
+women from one <em>pottery tradition</em> comes to a region with a <em>different tradition</em></li>
+<li><em>learning</em>:
+the <em>newcomer</em> adopts the local <em>main motif</em> of decoration learned from <em>local women</em></li>
+<li><em>change</em>:
+happens in form of adding <em>secondary motifs</em> of decoration that the <em>newcomer</em> brings from <em>her</em> home community</li>
+</ul>
+<div id="implications-of-the-model" class="section level3">
+<h3>Implications of the model</h3>
+<ul>
+<li>Change happens only at a <strong>certain moment of time</strong>:
+when the <em>newcomer</em> comes into the community and is combining the <em>local</em> and <em>foreign</em> <em>motifs</em></li>
+<li>No space for individual <strong>invention</strong> and <strong>agency</strong>.</li>
+</ul>
+<p><br></p>
+<p><br></p>
+</div>
+</div>
+</div>
+<div id="model" class="section level1">
+<h1>Model</h1>
+<blockquote>
+<p>Premise: <em>Men</em> making polished stone tools.</p>
+</blockquote>
+<p>If we apply the same model on the polished and beveled stone tools:</p>
+<p>Men are mostly <em>local</em> (e.g. Bentley 2012)<br />
+→ no <em>foreign</em> input → no <strong>change</strong> in case of polished tools?</p>
+<div id="therefore" class="section level3">
+<h3>Therefore…</h3>
+<ul>
+<li>There are not <em>large</em> changes in shape variation of axes and adzes.</li>
+<li>There is a shared idea of both the:
+<ul>
+<li><strong>shared manufacturing practice</strong> and</li>
+<li><strong>ideal shape</strong> the final artefact will take.</li>
+</ul></li>
+<li><p>Both of these are <em>learned</em>…</p></li>
+<li><p>The variation originates from <strong>small decisions</strong> taken during the process of
+manufacture.</p></li>
+</ul>
+</div>
+</div>
+<div id="conclusion" class="section level1">
+<h1>Conclusion</h1>
+<p>The <strong>decisions</strong> leading to <strong>variability in shape and size</strong> of polished and beveled stone tools
+are <strong>initially small and insignificant</strong> caused by personal preference,
+skill, technological necessity or a combination of these and cumulatively result in a
+<strong>larger and significant outcome</strong> (inspired by <a href="https://en.wikipedia.org/wiki/Tyranny_of_small_decisions">the tyranny of small decisions</a>).</p>
+<p><br></p>
+<p><br></p>
+</div>
+<div id="references" class="section level1">
+<h1>References</h1>
+<p>Bentley, R. A., Bickle, P., Fibiger, L. et al. 2012. Community differentiantion and kinship among Europe’s first farmers <em>PNAS</em> 109, 9326-9330.</p>
+<p>Claßen, E. 2009: Settlement history, land use and social networks of early Neolithic communities in western Germany.
+In Creating Communities: <em>New Advances in Central European Neolithic Research</em>, eds. D. Hofmann, P. Bickle, 95-110. Oxford: Oxbow Books.</p>
+<p>Hampton, O. W. Bud 1999: <em>Culture of Stone. Sacred and Profane Uses of Stone among the Dani.</em>
+College Station: Texas A&amp;M University Press.</p>
+<p>Pétrequin, P., Pétrequin A. M. et al. 1998. From the Raw Material to the Neolithic Stone Axe. Production Processes and Social Context. In <em>Understanding the Neolithic of North-Western Europe</em>, eds. M. Edmonds, C. Richards, 277-311. Glasgow: Cruithne Press.</p>
+<p>Pétrequin, P., Pétrequin, A. M. 2011: The twentieth-century polished stone axeheads
+of New Guinea: why study them? In <em>Stone Axe Studies III</em>, eds. V. Davis, M. Edmonds, 333-349. Oxford: Oxbow Books.</p>
+<p>Prostředník, J., Šída, P., Šrein, V., et al. 2005: Neolithic quarrying in the foothills of
+the Jizera Mountains and the dating thereof. <em>Archeologické rozhledy</em> LVII, 477 – 492.</p>
+<p>Toth, N., Clark, D., Ligabue, G. 1992: The Last Stone Ax Makers. <em>Scientific American</em> 267/1, 88-93.</p>
+</div>
+
+</div>
+<div class="main">
+<p><p style="text-align:left;">
+<strong>Variation</strong> in the <strong>shape</strong> of<br> polished and beveled <strong>stone tools</strong>
+</p></p>
+</div>
+<div class="main_bottom">
+<img id="main-img-left" src=>
+<img id="main-img-center" src=>
+<img id="main-img-right" src=fig/qr_github.png>
+</div>
+</div>
+
+
+
+</body>
+</html>
